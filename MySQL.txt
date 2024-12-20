@@ -1,0 +1,501 @@
+/*
+ -- 1.) Explain order of execution of SQL.
+-- 2.) What is difference between where and having?
+-- 3.) What is the use of group by?
+-- 4.) Explain all types of joins in SQL?
+-- 5.) What are triggers in SQL?
+-- 6.) What is stored procedure in SQL
+-- 7.) Explain all types of window functions?
+-- (Mainly rank, row_num, dense_rank, lead & lag)
+-- 8.) What is difference between Delete and Truncate?
+-- 9.) What is difference between DML, DDL and DCL?
+-- 10.) What are aggregate function and when do we use them? explain with few example.
+-- 11.) Which is faster between CTE and Subquery?
+-- 12.) What are constraints and types of Constraints?
+-- 13.) Types of Keys?
+-- 14.) Different types of Operators ?
+-- 15.) Difference between Group By and Where?
+-- 16.) What are Views?
+-- 17.) What are different types of constraints?
+-- 18.) What is difference between varchar and nvarchar?
+-- 19.) Similar for char and nchar?
+-- 20.) What are index and their types?
+-- 21.) What is an index? Explain its different types.
+-- 22.) List the different types of relationships in SQL.
+-- 23.) Differentiate between UNION and UNION ALL.
+-- 24.) How many types of clauses in SQL?
+-- 25.) What is the difference between UNION and UNION ALL in SQL?
+-- 26.) What are the various types of relationships in SQL?
+-- 27.) Difference between Primary Key and Secondary Key?
+-- 28.) What is the difference between where and having?
+-- 29.) Find the second highest salary of an employee?
+-- 30.) Write retention query in SQL?
+-- 31.) Write year-on-year growth in SQL?
+-- 32.) Write a query for cummulative sum in SQL?
+-- 33.) Difference between Function and Store procedure ?
+-- 34.) Do we use variable in views?
+-- 35.) What are the limitations of views?
+
+*/
+
+
+/*
+query to return EmployeeID, FirstName, LastName, City and AddressLine
+query to count the number of characters except the spaces for each FirstName
+query to find the unique AddressLine with LastName.
+query to find those employees who do not belong to AddressLine Brazil. 
+query to find those employees who do not belong to AddressLine Argentina.
+query to find those employees who EmployeeID's are before 105.
+query to find those employees who EmployeeID's are before/after or equal to 105.
+query to find the details of the employee ‘Carol’.
+query to find the FirstName of the employees whose length is six.
+query to find the details of the employee LastName ‘Santos’.
+query to find those employees whose AddressLine is ‘Brazil’ .
+query to find those employees whose AddressLine are either Brazil or Argentina.
+query to find those employees whose AddressLine begin's with C.
+query to find those employees whose AddressLine ends with l.
+query to find those employees whose AddressLine values with 'rg' in between
+
+
+W hich actors have the first name ‘Scarlett’
+Which actors have the last name ‘Johansson’
+How many distinct actors last names are there?
+Which last names are not repeated?
+Which last names appear more than once?
+Which actor has appeared in the most films?
+Is ‘Academy Dinosaur’ available for rent from Store 1?
+Insert a record to represent Mary Smith renting ‘Academy Dinosaur’ from Mike Hillyer at Store 1 today .
+When is ‘Academy Dinosaur’ due?
+What is that average running time of all the films in the sakila DB?
+What is the average running time of films by category?
+Why does this query return the empty set?
+
+*/
+
+select * from actor;
+-- query to return EmployeeID, FirstName, LastName, City and AddressLine
+SELECT EmployeeID,FirstName,LastName,City,AddressLine from employee;
+
+-- query to count the number of characters except the spaces for each FirstName
+SELECT length(FirstName) from employee;
+
+-- query to find the unique AddressLine with LastName.
+SELECT distinct(count(LastName)) from employee;
+
+-- query to find those employees who do not belong to AddressLine Brazil. 
+select * from employee where AddressLine = 'Brazil';
+
+-- query to find those employees who do not belong to AddressLine Argentina.
+select * from employee where AddressLine NOT IN ('Argentina');
+
+-- query to find those employees who EmployeeID's are before 105.
+SELECT * from employee where EmployeeID <= 105;
+
+SELECT * from employee;
+-- query to find the details of the employee ‘Carol’.
+SELECT * from employee where FirstName = 'Carol';
+
+-- query to find the FirstName of the employees whose length is six.
+SELECT * from employee where length(FirstName) = 6;
+
+-- query to find the details of the employee LastName ‘Santos’.
+SELECT * from employee where LastName = 'Santos';
+
+-- query to find those employees whose AddressLine are either Brazil or Argentina.
+SELECT * from employee WHERE AddressLine IN ('Brazil','Argentina');
+
+-- query to find those employees whose AddressLine begin's with C.
+SELECT * FROM employee where AddressLine LIKE 'C%';
+
+INSERT INTO person_info (person_name, email, city)  
+SELECT name, email, city  
+FROM person  
+WHERE city = 'New York';  
+
+
+SELECT * from film;
+
+/*
+ Select only the following columns from the film table.
+ COLUMN NAME           Note
+ title                 Exists in film table.
+ description           Exists in film table.
+ rental_duration       Exists in film table.
+ rental_rate           Exists in film table.
+ total_rental_cost     rental_duration * rental_rate
+*/
+SELECT title,description,rental_duration,rental_rate, rental_duration * rental_rate as total_rental_cost from film;
+
+-- [DISTINCT operator]
+-- Select all distinct (different) last names from the actor table.
+-- Select all distinct (different) postal codes from the address table.
+select distinct last_name from actor;
+
+SELECT distinct COUNT(postal_code) from address;
+
+/*
+WHERE clause || LIKE % || 
+IN : IN operator allows you to specify multiple values in a WHERE clause 
+CAST [lets you change a value from one data type to another, ensuring compatibility and proper formatting in your database operations.]
+BETWEEN operator: The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+LIKE operator
+LIMIT Operator
+ORDER BY statement
+Select the title, description, rating, movie length columns from the films table that last 3 hours or longer.
+Select the payment id, amount, and payment date columns from the payments table for payments made on or after 05/27/2005.
+Select the primary key, amount, and payment date columns from the payment table for payments made on 05/27/2005.
+Select all columns from the customer table for rows that have a last name beginning with "S" and a first name ending with "N".
+Select all columns from the customer table for rows where the customer is inactive or has a last name ending with "M".
+Select all columns from the category table for rows where the primary key is greater than 4 and the name field begins with either "C", "S" or "T".
+Select all columns minus the password column from the staff table for rows that contain a password || not contain password.
+Select the phone and district columns from the address table for addresses in California, England, Taipei, or West Java.
+Select the payment id, amount, and payment date columns from the payment table for payments made on 05/25/2005, 05/27/2005, and 05/29/2005.
+(Use the IN operator and the DATE function, instead of the AND operator as in previous exercises.)
+Select all columns from the film table for films rated G, PG-13 or NC-17.
+Select all columns from the payment table for payments made between midnight 05/25/2005 and 1 second before midnight 05/26/2005.
+Select the following columns from the film table for films where the length of the description is between 100 and 120.
+Select the following columns from the film table for rows where the description begins with "A Thoughtful". Title, Description, Release Year
+Select the following columns from the film table for rows where the title ends with "N".
+Select the following columns from the film table where the description contains the word "Database" and the length of the film is greater than 3 hours.
+Select all columns from the payment table and only include the first 20 rows.
+Select the payment id, payment date and amount columns from the payment table for rows where the payment amount is greater than 5 and only select rows whose zero-based index in the result set is between 51-100.
+Select all columns from the customer table, limiting results to those where the zero-based index is between 101-200.
+ Select all columns from the film table and order rows by the length field in ascending order.
+ Select all distinct ratings from the film table ordered by rating in descending order.
+ Select the payment date and amount columns from the payment table for the first 20 payments ordered by payment amount in descending order.
+Select the title, description, special features, length, and rental duration columns from the film table 
+for the first 10 films with behind 
+the scenes footage under 2 hours in length and a rental duration between 5 and 7 days, ordered by length in descending order.
+*/
+SELECT title,description,rating,length from film where length >=180;
+
+SELECT payment_id,amount,payment_date from payment where payment_date >= '2005-05-27 00:00:00' ;
+
+SELECT payment_id,amount,payment_date from payment where payment_date = DATE('2005-05-27 00:00:00');
+
+SELECT * from customer where last_name LIKE '%s' AND first_name LIKE 'n%';
+
+SELECT * from customer where active = 0 OR last_name LIKE 'm%';
+
+SELECT * from category where category_id  > 4 AND name like '%c' OR name LIKE '%s' OR name LIKE '%t';
+
+SELECT staff_id,first_name,last_name,address_id,picture,email,store_id,active,username,last_update,password from staff where password IS NULL;
+
+SELECT phone,district from address where district IN ('California','England','Taipei','West Java');
+
+SELECT payment_id,amount,payment_date from payment where CAST( payment_date as date ) IN ('2005-05-25' , '2005-05-27', '2005-05-29');
+
+SELECT * from film where rating IN ('G','PG-13','NC=17');
+
+select * from payment where cast(payment_date as dateTime) BETWEEN '2005-05-25 00:00:00.000' AND '2005-05-26 23:59:59.000';
+
+Select title,description,release_year, rental_duration * rental_rate AS TOTAL_RENTAL_COST from film WHERE length(description) between '100' AND '120';
+
+SELECT title,description,release_year from film where description LIKE 'A Thoughtful%';
+
+SELECT title,description,rental_duration from film where title like '%n';
+
+SELECT title,length,description,rental_rate from film where description LIKE '%database%' AND length > '180';
+
+SELECT * from payment limit 20;
+
+SELECT payment_id,payment_date,amount from payment where amount>5 limit 50;
+
+SELECT * from customer where customer_id between 101 AND 200 ;
+
+SELECT * from film ORDER BY length ASC;
+
+SELECT * from film order by rating desc;
+
+SELECT payment_id,payment_date,amount from payment order by amount desc LIMIT 20;
+
+/*
+Select the title, description, special features, length, and rental duration columns from the film table 
+for the first 10 films with behind 
+the scenes footage under 2 hours in length and a rental duration between 5 and 7 days, ordered by length in descending order.
+*/
+
+SELECT 
+    title,
+    description,
+    special_features,
+    length,
+    rental_duration
+FROM
+    film
+WHERE
+    special_features LIKE ('%behind the scenes%')
+        AND LENGTH < '120'
+        AND rental_duration BETWEEN '5' AND '7'
+ORDER BY length DESC
+LIMIT 10;
+
+/*************************************************************************************/
+select * from department;
+select * from employees;
+-- Select employees first name, last name, job_id and salary whose first name starts with alphabet S
+SELECT first_name,last_name,job_id,salary from employees where upper(first_name) LIKE 'S%'; 
+
+-- Write a query to select employee with the highest salary
+SELECT first_name,last_name,salary from employees where salary = (SELECT max(salary) from employees);
+
+-- Select employee with the second highest salary
+SELECT first_name,last_name,salary FROM employees WHERE salary != (SELECT MAX(salary) FROM employees) ORDER BY salary DESC LIMIT 1;
+
+-- Write a query to select employees and their corresponding managers and their salaries
+ select concat(emp.first_name,' ',emp.last_name) employee,
+        emp.salary emp_sal,
+        concat(mgr.first_name,' ',mgr.last_name) manager,
+        mgr.salary mgr_sal
+ from employees emp
+ join employees mgr on emp.manager_id = mgr.employee_id;
+ 
+  select concat(emp.first_name,' ',emp.last_name) employee,
+        emp.salary emp_sal 
+        from employees emp ;
+ 
+ 
+--  Find the salary range of employees
+SELECT min(salary) min_sal, max(salary) max_sal,round(avg(salary)) avg_sal from employees;
+
+-- Get the count of employees hired year wise
+SELECT year(hire_date) hired_year, count(*) employees_hired_count
+ from employees
+ group by year(hire_date)
+ order by 2 desc;
+ 
+ 
+-- Select the employees whose first_name contains “an”
+ select first_name from employees where  lower(first_name) like '%an%';
+ 
+--  Select employee first name and the corresponding phone number in the format (_ _ _)-(_ _ _)-(_ _ _ _)
+ select concat(first_name,'',last_name) employee ,
+ replace(phone_number,'.','-') phone_number  from employees ;
+ 
+ 
+--  Find the employees who joined in August, 1994.
+SELECT concat(first_name,'',last_name) employee,hire_date from employees
+where year(hire_date) = '1994' AND month(hire_date) = '08'; 
+
+--  Write a SQL query to display the 5 least earning employees
+
+SELECT employee_id,first_name,last_name from employees 
+order By salary
+limit 5;
+
+
+-- Find the employees hired in the 80s
+SELECT employee_id,first_name , last_name,hire_date  from employees
+where year(hire_date) between 1980 AND 1989;
+
+-- Display the employees first name and the name in reverse order
+
+SELECT lower(first_name) first_name, 
+lower(reverse(first_name)) name_reverse
+ from employees;
+
+-- Write an SQL query to display employees who earn more than the average salary in that company
+SELECT * from employees;
+
+ select 
+ concat(emp.first_name,last_name) name,
+ emp.employee_id, 
+ dept.department_name department,
+ dept.department_id,
+ emp.salary
+ from departments dept
+ JOIN employees emp on dept.department_id = emp.department_id
+ where emp.salary > (select avg(salary) from employees)
+ order by dept.department_id;
+ 
+ 
+--  Which actors have the first name ‘Scarlett’
+
+select * from film;
+select * from film_actor;
+
+select * from rental;
+
+select * from actor where first_name = 'Scarlett';
+
+-- Which actors have the last name ‘Johansson’
+SELECT * from actor where last_name = 'Johansson';
+
+-- How many distinct actors last names are there?
+select distinct(last_name),first_name from actor;
+
+-- Which last names are not repeated?
+select last_name from actor group by last_name having count = 1 ;
+
+
+-- Which last names appear more than once?
+-- select last_name from actor group by last_name having count(*) > 1;
+SELECT last_name from actor group by last_name having count(0) > 1 ;
+
+SELECT * FROM employee;
+
+-- query to count the number of characters except the spaces for each FirstName
+SELECT COUNT(FirstName) FROM employee;
+
+-- query to find the unique AddressLine with LastName.
+SELECT distinct(AddressLine) FROM employee;
+
+-- query to find those employees who do not belong to AddressLine Brazil. 
+SELECT * From employee where AddressLine not in  ("Brazil");
+
+-- query to find those employees who EmployeeID's are before 105.
+SELECT * From employee where EmployeeID > 105;
+
+-- query to find the details of the employee ‘Carol’.
+SELECT * FROM employee Where FirstName = 'Carol';
+
+-- query to find the FirstName of the employees whose length is six.
+SELECT * FROM employee where length(FirstName) = 6;
+
+-- query to find the details of the employee LastName ‘Santos’
+SELECT * FROM employee WHERE LastName = "Santos";
+
+-- query to find those employees whose AddressLine are either Brazil or Argentina.
+SELECT * From employee Where AddressLine IN ("Brazil" , "Argentina");
+
+-- query to find those employees whose AddressLine begin's with C.
+SELECT * FROM employee Where AddressLine like "C%";
+
+
+/*
+WHERE clause || LIKE % || 
+IN : IN operator allows you to specify multiple values in a WHERE clause 
+CAST [lets you change a value from one data type to another, ensuring compatibility and proper formatting in your database operations.]
+BETWEEN operator: The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+LIKE operator
+LIMIT Operator
+ORDER BY statement
+Select the title, description, rating, movie length columns from the films table that last 3 hours or longer.
+Select the payment id, amount, and payment date columns from the payments table for payments made on or after 05/27/2005.
+Select the primary key, amount, and payment date columns from the payment table for payments made on 05/27/2005.
+Select all columns from the customer table for rows that have a last name beginning with "S" and a first name ending with "N".
+Select all columns from the customer table for rows where the customer is inactive or has a last name ending with "M".
+Select all columns from the category table for rows where the primary key is greater than 4 and the name field begins with either "C", "S" or "T".
+Select all columns minus the password column from the staff table for rows that contain a password || not contain password.
+Select the phone and district columns from the address table for addresses in California, England, Taipei, or West Java.
+Select the payment id, amount, and payment date columns from the payment table for payments made on 05/25/2005, 05/27/2005, and 05/29/2005.
+(Use the IN operator and the DATE function, instead of the AND operator as in previous exercises.)
+Select all columns from the film table for films rated G, PG-13 or NC-17.
+Select all columns from the payment table for payments made between midnight 05/25/2005 and 1 second before midnight 05/26/2005.
+Select the following columns from the film table for films where the length of the description is between 100 and 120.
+Select the following columns from the film table for rows where the description begins with "A Thoughtful". Title, Description, Release Year
+Select the following columns from the film table for rows where the title ends with "N".
+Select the following columns from the film table where the description contains the word "Database" and the length of the film is greater than 3 hours.
+Select all columns from the payment table and only include the first 20 rows.
+Select the payment id, payment date and amount columns from the payment table for rows where the payment amount is greater than 5 and only select rows whose zero-based index in the result set is between 51-100.
+Select all columns from the customer table, limiting results to those where the zero-based index is between 101-200.
+ Select all columns from the film table and order rows by the length field in ascending order.
+ Select all distinct ratings from the film table ordered by rating in descending order.
+ Select the payment date and amount columns from the payment table for the first 20 payments ordered by payment amount in descending order.
+Select the title, description, special features, length, and rental duration columns from the film table 
+for the first 10 films with behind 
+the scenes footage under 2 hours in length and a rental duration between 5 and 7 days, ordered by length in descending order.
+*/
+
+SELECT * from film;
+SELECT * FROM payment;
+select * from address;
+-- Select the title, description, rating, movie length columns from the films table that last 3 hours or longer.
+SELECT title,description,rating,length from film where length>180;
+
+-- Select the payment id, amount, and payment date columns from the payments table for payments made on or after 05/27/2005.
+SELECT payment_id,amount,payment_date from payment where payment_date = date('2005-05-27 00:00:00');
+
+-- Select all columns from the customer table for rows that have a last name beginning with "S" and a first name ending with "N".
+SELECT * from customer where last_name Like "%s"  AND first_name Like "n%";
+
+-- Select all columns from the customer table for rows where the customer is inactive or has a last name ending with "M".
+SELECT * from customer where active = 0 OR last_name = "m%";
+ 
+--  Select all columns from the category table for rows where the primary key is greater than 4 and the name field begins with either "C", "S" or "T".
+SELECT * FROM category where category_id > 4 AND name LIKE ("%C") OR name LIKE ("%S") or name LIKE ("%T");
+
+-- Select all columns minus the password column from the staff table for rows that contain a password || not contain password.
+SELECT staff_id,first_name,last_name,email,staff_id,username,password from staff where password IS NOT null;
+
+-- Select the phone and district columns from the address table for addresses in California, England, Taipei, or West Java.
+SELECT phone,district FROM address WHERE district IN("California","English","Taipei","West Java");
+
+-- Select the payment id, amount, and payment date columns from the payment table for payments made on 05/25/2005, 05/27/2005, and 05/29/2005.
+SELECT payment_id,amount,payment_date from payment where CAST(payment_date as date) IN ('2005-05-25' , '2005-05-27', '2005-05-29'); 
+
+
+/****************************************************/
+
+/*
+The stored procedure is SQL statements wrapped within the CREATE PROCEDURE statement. 
+The stored procedure may contain a conditional statement like IF or CASE or the Loops. 
+The stored procedure can also execute another stored procedure or a function that modularizes the code.
+
+The syntax to create a MySQL Stored procedure is the following:
+Create Procedure [Procedure Name] ([Parameter 1], [Parameter 2], [Parameter 3] )
+Begin
+SQL Queries..
+End
+In the Syntax 
+1)The name of the procedure must be specified after the Create Procedure keyword
+2)After the name of the procedure, the list of parameters must be specified in the parenthesis. The parameter list must be comma-separated
+3)The SQL Queries and code must be written between BEGIN and END keywords
+To execute the store procedure, you can use the CALL keyword. Below is syntax:
+
+CALL [Procedure Name] ([Parameters]..)
+
+Creating Store Procedure
+------ EXAMPLE ----------
+DELIMITER //
+CREATE PROCEDURE GetMovies()
+BEGIN
+    select title,description,release_year,rating from film;
+END //
+    
+DELIMITER ;
+
+
+IN=> Input parameter that passes a value from the caller into the procedure’s routine.
+OUT=> Output parameter that passes a value from the routine back to the caller.
+INOUT => Parameter that can be initialized by the caller, updated by the routine, and then returned to the caller with its new value.
+
+*/
+
+
+
+
+-- CALL testCase();
+-- CALL getMovieByRating('PG-13');
+-- CALL Movie_count(@PGRatingMovies);
+-- select @PGRatingMovies as Movies;
+
+
+
+-- CALL TotalMovies_PG13(@T ,'PG-13');
+-- Select @T as Movies;
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

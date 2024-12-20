@@ -1,0 +1,195 @@
+_)Array Methods in JavaScript [Filter,Map,Reduce,Sort]?
+const employees =[
+    {id:53,name:'Mike Iwins',age:35,designation:'Team Lead',salary:140000,phone:'4564651556'},
+    {id:54,name:'Ava Elliot',age:25,designation:'Developer',salary:87000,phone:'4564651556'},
+    {id:55,name:'Lima Hendrix',age:30,designation:'Developer',salary:100000,phone:'4564651556'},
+    {id:55,name:'Ashton Cox',age:28,designation:'Developer',salary:90000,phone:'4564651556'},
+    {id:56,name:'Kate Smith',age:26,designation:'Designer',salary:55000,phone:'4564651556'},
+    {id:57,name:'Fiona Quinn',age:27,designation:'Tester',salary:65000,phone:'4564651556'},
+    {id:58,name:'Bernard Neal',age:31,designation:'Analyst',salary:60000,phone:'4564651556'},
+    {id:59,name:'Suzie Janes',age:33,designation:'Accountant',salary:49000,phone:'4564651556'},
+
+]
+
+const companies=[
+    {name:'Company One',category:'Finance',start:1981,end:2000},
+    {name:'Company two',category:'Retail',start:1992,end:2008},
+    {name:'Company three',category:'Auto',start:1999,end:2007},
+    {name:'Company four',category:'Retail',start:1989,end:2010},
+    {name:'Company five',category:'Technology',start:2009,end:2014},
+    {name:'Company six',category:'Finance',start:1987,end:2010},
+    {name:'Company seven',category:'Auto',start:1986,end:1996},
+    {name:'Company eight',category:'Technology',start:2011,end:2016},
+    {name:'Company nine',category:'Retail',start:1981,end:1989},
+
+]
+
+const age=[33,12,20,16,5,54,21,44,61,13,15,45,25,64,32]
+
+1)Filter:Filter ages array which are 21 and above/over 
+2)Filere : Filter 'Retail' Company
+3) filter : Filter companies array which are started in 80's
+4)filer : Filter companies that lasted more than 10years 
+5)Filter : Employee Array who are 'developer'
+6)Filter : Employee Array who's age is below "30" and Salary is above 85K
+7)Filter : Filter Age array , find  odd and even values
+
+
+1)map: map() method create new array from the existing/current array 
+2)Create array of compaines names 
+3)Map() : Find the employee  Designation and salary
+4)Map() : map() compaies array with 'companies' name and 'start-end' 
+5)Map(): Find employee name and convert them into upper case 
+6)map():map() square root of age array 
+
+__sort() : The sort () method sorts the items of an array. 
+1) The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down).
+2)sort() : sort() age array lowest to higest 
+3)sort():sort() employee name by ascending order 
+4)sort():sort() employee age by low to high
+
+__Reduce(): reduce a conclusion out of array elements
+1)reduce(): Get Total years of all the companies 
+2)Reduce() Reduce() To Find the hightest age array value
+3)Reduce():find the avarage salary of employee array 
+4)Reduce():find the Sum of age array 
+5)Reduce():Sum of Nums and Age array
+
+---------------------Common Programming practical question --------------------------
+--Challenge 1: REVERSE A String 
+Return a string in reverse order 
+Ex: reverString('hello')==='olleh'
+
+--Challenge 2 : Validate a Palindrome 
+return true if palindrome or if not , return false 
+ex: isPalindrome('racecare')==true , is palindrome and ('hello')===false 
+
+--challenge 3: Reverse an integer 
+return an interger in reverse 
+ex: reverseInt(521)===125
+
+--Challenge 4: Capitalize letters
+Return a string with the first letter of every word capitalized 
+ex capitalizeLetter('i love javascript')=== I LOVE JAVASCRIPT
+
+
+--Write a JavaScript program to get the difference between a given number and 13, if the number is greater 
+than 13 return double the absolute difference.
+
+--Area of a square root  A=/s(s-a)(s-b)(s-c)
+
+_)Difference between rest operator and spread operator 
+Note:JavaScript uses three dots (...) for both the rest and spread operators. 
+     But these two operators are not the same.
+
+_)What Is the Spread Operator and How Does spread work in JavaScript?
+The spread operator (...) helps you expand iterables into individual elements.
+Note: A spread operator is effective only when used within array literals, function calls, 
+or initialized properties objects.
+
+__)Spread Example 1: How Spread Works in an Array Literal
+//Spread Example 1: How Spread Works in an Array Literal
+
+
+
+Main Question: Get the passengers' names using the data provided 
+Bonus Part (a)- Return vegetarians/vegans
+Bonus Part (b)- Sort passengers by the number of connected flights in descending order
+
+The Data
+To solve the puzzles, you're expected to use the data inside the following array of objects in practical ways.
+
+const passengers = [
+    {
+      id: 1,
+      passengerName: "Freddie Mercury",
+      isVegetarianOrVegan: false,
+      connectedFlights: 2,
+    },
+    {
+      id: 2,
+      passengerName: "Amy Winehouse",
+      isVegetarianOrVegan: true,
+      connectedFlights: 4,
+    },
+      {
+      id: 3,
+      passengerName: "Kurt Cobain",
+      isVegetarianOrVegan: true,
+      connectedFlights: 3,
+    },
+       {
+      id: 3,
+      passengerName: "Michael Jackson",
+      isVegetarianOrVegan: true,
+      connectedFlights: 1,
+    },
+  ];
+
+--Interview Question 1: How to Get Passengers' Names */
+--Interview Question 2: How to Get Vegetarian/Vegan Singers*/
+-- Interview Question #3: How to Sort Passengers by Connecting Flights */
+
+-----------------Ternary Operator---------------------------
+-- a filter function. Takes an input, and returns true/false from it.
+
+const ages = [11, 14, 26, 9, 41, 24, 108];
+
+-)program to extract value as an array from an array of objects
+const objArray = [{a: 1, b: 2}, {a: 4, b: 5}, {a: 8, b: 9}];
+
+
+-) Convert the number to a string, using the spread operator (...) to build an array.
+
+-)Convert the number to a string, using the spread operator (...) to build an array. 
+
+--using array.every(): find if all 'age' is >=80 
+The every() method tests whether all elements in the array pass the test implemented by the provided function. 
+It returns a Boolean value.
+
+const peopleAge=[1,43,44,23,67,78,12]
+
+__Write a JavaScript program to get the difference between a given number and 13, if the number is greater than 13 return double the absolute difference.
+
+
+__ 4 Ways to Swap Variables in JavaScript?
+
+//using destructuring assignment
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+console.log(a); // => 2
+console.log(b); // => 1
+
+
+// addition and subtraction operator
+let a = 1;
+let b = 2;
+
+a = a + b;
+b = a - b;
+a = a - b;
+
+console.log(a); // => 2
+console.log(b); // => 1
+
+
+-)Compare two JS arrays and remove dupicate 
+-)Count the number of character in the string :Ex : ['Pradeep'] = [p:2,r:1,a:1,d:1,e:2]
+-)Fibonacce series 
+-)palindrome / fizzbuzz
+-)Square Root 
+-)SetTimeOut/SetTimeInterval 
+-)Second largest value from the Array 
+-)Convert all the array items to uppercase:
+-)Print Prime Number :[only odd numbers/only even numbers]
+-)checking if a string contains a work 'software' in a given string 'I am a software Developer'
+-)// largest number from the array 
+let array=[33,12,20,16,5,54,21,44,61,13,15,45,25,64,32];
+-)convert stringInter to number 
+
+
+
+

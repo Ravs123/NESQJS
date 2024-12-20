@@ -1,0 +1,141 @@
+1.) Explain order of execution of SQL.
+
+2.) What is difference between where and having?
+A)1)WHERE Clause: 
+WHERE Clause is used to filter the records from the table or used while joining more than one table.
+Only those records will be extracted who are satisfying the specified condition in WHERE clause. 
+It can be used with SELECT, UPDATE, DELETE statements.
+--------------------------------------------------------
+2)HAVING Clause: 
+HAVING Clause is used to filter the records from the groups based on the given condition in the HAVING Clause.
+Those groups who will satisfy the given condition will appear in the final result. HAVING Clause can only be used 
+with SELECT statement.
+----------------------------------------------------------
+3.) What is the use of group by?
+A)The MYSQL GROUP BY Clause is used to collect data from multiple records and group the result by one or more column. 
+It is generally used in a SELECT statement.You can also use some aggregate functions like COUNT, SUM, MIN, MAX, AVG etc. on the grouped column.
+-----------------------------------------------------------
+4.) Explain all types of joins in SQL?
+MySQL JOINS are used with SELECT statement. It is used to retrieve data from multiple tables.
+ It is performed whenever you need to fetch records from two or more tables.
+*)MySQL INNER JOIN (or sometimes called simple join)
+    The MySQL INNER JOIN is used to return all rows from multiple tables where the join condition is satisfied. 
+    It is the most common type of join.
+*) MySQL LEFT OUTER JOIN (or sometimes called LEFT JOIN)
+The LEFT OUTER JOIN returns all rows from the left hand table specified in the ON condition and only those rows 
+from the other table where the join condition is fulfilled.
+*) MySQL RIGHT OUTER JOIN (or sometimes called RIGHT JOIN)
+The MySQL Right Outer Join returns all rows from the RIGHT-hand table specified in the ON condition and only those rows from 
+the other table where he join condition is fulfilled.
+-----------------------------------------------------------------
+5.) What are triggers in SQL?
+A)A trigger in MySQL is a set of SQL statements that reside in a system catalog.
+ It is a special type of stored procedure that is invoked automatically in response to an event.
+Each trigger is associated with a table, which is activated on any DML statement such as INSERT, UPDATE, or DELETE.
+A trigger is called a special procedure because it cannot be called directly like a stored procedure. The main difference between the trigger and procedure is that a trigger is called automatically when a data modification event is made against a table. 
+In contrast, a stored procedure must be called explicitly.
+Trigger are of two type Row-level Trigger and Statement-Level Trigger 
+# ROW-LEVEL Trigger): It is a trigger, which is activated for each row by a triggering statement such as insert, update, or delete. 
+For example, if a table has inserted, updated, or deleted multiple rows, the row trigger is fired automatically for each row affected by the insert, update, or delete statement.
+# STATEMENT-LEVEL) Trigger: It is a trigger, which is fired once for each event that occurs on a table regardless of how many rows are inserted, updated, or deleted.
+------------------------------------------------------------------
+6.) What is stored procedure in SQL
+A)A procedure) (often called a stored procedure) is a collection of pre-compiled SQL statements stored inside the database. It is a subroutine or a subprogram in the regular computing language. 
+A procedure always contains a name, parameter lists, and SQL statements.
+Stored Procedure increases the performance of the applications. Once stored procedures are created, they are compiled and stored in the database.
+Stored procedure reduces the traffic between application and database server.
+Because the application has to send only the stored procedure's name and parameters instead of sending multiple SQL statements.
+--------------------------------------------------------------------------
+7.) Explain all types of window functions?
+(Mainly rank, row_num, dense_rank, lead & lag)
+8.) What is difference between Delete and Truncate?
+A)
+DELETE] is an example of a DML (Data Manipulation Language) command. 
+It can be used to delete a single row (record) or numerous rows (records) at once from a table.
+Within the context of the DELETE command, the WHERE clause denotes a criterion that must be met in order to remove just the undesirable rows from the target table.
+
+TRUNCATE] is a type of DDL (Data Definition Language) command. When working with tables, we use this command to delete all of the records at once.
+The TRUNCATE command does not use any conditions in the same way as the WHERE clause does to define conditions.
+Therefore, we ought to only utilize it in situations where all of the data in the target database is undesirable.
+----------------------------------------------------------------------------------
+9.) What is difference between DML, DDL and DCL?
+10.) What are aggregate function and when do we use them? explain with few example.
+11.) Which is faster between CTE and Subquery?
+12.) What are constraints and types of Constraints?
+---------------------------------------------------------------------------------
+13.) Types of Keys?
+A)Candidate Key) - The candidate keys in a table are defined as the set of keys that is minimal and can uniquely identify any data row in the table.
+Primary Key) - The primary key is selected from one of the candidate keys and becomes the identifying key of a table. It can uniquely identify any data row of the table.
+Super Key) - Super Key is the superset of primary key. The super key contains a set of attributes, including the primary key, which can uniquely identify any data row in the table.
+Composite Key) -  If any single attribute of a table is not capable of being the key i.e it cannot identify a row uniquely, then we combine two or more attributes to form a key. This is known as a composite key.
+Secondary Key) - Only one of the candidate keys is selected as the primary key. The rest of them are known as secondary keys.
+Foreign Key) - A foreign key is an attribute value in a table that acts as the primary key in another table. Hence, the foreign key is useful in linking together two tables. Data should be entered in the foreign key column with great care,
+ as wrongly entered data can invalidate the relationship between the two tables.
+ -------------------------------------------------------------------------------
+14.) Different types of Operators ?
+A)
+Types of Operator in SQL
+SQL supports following types of operators:
+Arithmetic operators [+,-,*,/,%,]
+Comparison operators[=,!=,<>,>,<,<=,>=,!<,!>]
+Logical operators[AND,BETWEEN,IN,LIKE,NOT,OR,IS NULL,SOME,UNIQUE,SOME]
+Operators used to negate conditions
+-------------------------------------------------------------------------------
+15.) Difference between Group By and Where?
+16.) What are Views?
+17.) What are different types of constraints?
+18.) What is difference between varchar and nvarchar?
+19.) Similar for char and nchar?
+20.) What are index and their types?
+21.) What is an index? Explain its different types.
+22.) List the different types of relationships in SQL.
+23.) Differentiate between UNION and UNION ALL.
+24.) How many types of clauses in SQL?
+25.) What is the difference between UNION and UNION ALL in SQL?
+26.) What are the various types of relationships in SQL?
+27.) Difference between Primary Key and Secondary Key?
+28.) What is the difference between where and having?
+29.) Find the second highest salary of an employee?
+30.) Write retention query in SQL?
+31.) Write year-on-year growth in SQL?
+32.) Write a query for cummulative sum in SQL?
+33.) Difference between Function and Store procedure ?
+34.) Do we use variable in views?
+35.) What are the limitations of views?
+
+
+
+
+
+1. SQL and its Purpose:
+SQL (Structured Query Language) is a programming language for managing and manipulating relational databases. 
+Its primary purpose is to interact with databases to retrieve, update, and manage data.
+
+2. SQL vs. NoSQL:
+SQL databases are relational and use a structured schema, while NoSQL databases are non-relational and can handle unstructured data. 
+SQL is table-based, NoSQL is document, key-value, wide-column, or graph-based.
+
+3.Database and Types:
+A database is an organized collection of data. Types include relational (SQL), NoSQL, object-oriented, and more.
+
+4. DBMS:
+A Database Management System (DBMS) is software that manages databases, providing an interface for users and applications to interact with the data.
+
+5. SQL Comments:
+In SQL, comments are added using ‘—‘ for single-line comments and ‘/* */‘ for multi-line comments.
+
+6. SQL Joins:
+Joins combine rows from two or more tables. Types include INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
+
+7. Join Differences:
+INNER JOIN returns matching rows, LEFT JOIN returns all from the left table and matching from the right, RIGHT JOIN vice versa, 
+and FULL OUTER JOIN returns all rows when there’s a match in either table.
+
+8.GROUP BY Clause:
+GROUP BY is used to group rows based on a column. Example: `SELECT department, AVG(salary) FROM employees GROUP BY department;`
+
+9. HAVING Clause:
+HAVING filters results of aggregate functions in a GROUP BY query based on a condition.
+
+10. Aggregate Function Query:
+Example query to find average, sum, and count: `SELECT AVG(column), SUM(column), COUNT(column) FROM table;`

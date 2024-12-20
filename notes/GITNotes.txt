@@ -1,0 +1,63 @@
+Github commands 
+
+git init 
+git add:Moves changes from the working directory to the staging area. 
+This gives you the opportunity to prepare a snapshot before committing it to the official history.
+git commit:
+git branch: This command is your general-purpose branch administration tool. 
+It lets you create isolated development environments within a single repository.
+
+git checkout: In addition to checking out old commits and old file revisions, git checkout is also the means to navigate existing branches.
+Combined with the basic Git commands, it’s a way to work on a particular line of development.
+
+git clone:Creates a copy of an existing Git repository.
+Cloning is the most common way for developers to obtain a working copy of a central repository.
+
+git commit:Takes the staged snapshot and commits it to the project history. Combined with git add, this defines the basic workflow for all Git users.
+
+git pull:Pulling is the automated version of git fetch. It downloads a branch from a remote repository, then immediately merges it into the current branch. 
+This is the Git equivalent of svn update.
+
+git push: Pushing is the opposite of fetching (with a few caveats). It lets you move a local branch to another repository,
+which serves as a convenient way to publish contributions.
+
+git status: Displays the state of the working directory and the staged snapshot. You’ll want to run this in conjunction 
+with git add and git commit to see exactly what’s being included in the next snapshot.
+
+git add .
+git commit -m "Comment........."
+git pull origin feature/nutrition
+git push origin feature/nutrition
+*****************************************
+------GIT code from all branches------------- 
+git pull origin feature/nutrition
+
+
+
+
+---- GIT Changing Branch ---------
+git fetch --all : to fetch all the branches 
+git checkout feature/classes : to  change/access branch 
+
+
+
+to check the status of your local repository
+git status
+
+to get latest code from server before start doing any changes in your local
+git pull origin <branch_name> 
+
+to revert unstaged changes
+git restore .
+
+to add local modified files to staging
+git add . 
+
+to revert the staged changes
+git restore --staged .
+
+git commit -m "<your comments>" -- to commit the staged changes
+git push origin <branch_name> 
+
+to fetch all branches to your local
+git fetch --all 

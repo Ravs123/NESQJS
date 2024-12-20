@@ -1,0 +1,20 @@
+{
+  "name": "atomic_habits",
+  "version": "1.0.0",
+  "description": "over all concepts related to node,express,js,mysql and other middleware ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+  "start": "node app.js"
+  },
+  "author": "deadpool",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.7"
+  }
+}

@@ -1,0 +1,94 @@
+// --Challenge 1: REVERSE A String 
+// Return a string in reverse order 
+// Ex: reverString('hello')==='olleh'
+
+// --Challenge 2 : Validate a Palindrome 
+// return true if palindrome or if not , return false 
+// ex: isPalindrome('racecare')==true , is palindrome and ('hello')===false 
+
+// --challenge 3: Reverse an integer 
+// return an interger in reverse 
+// ex: reverseInt(521)===125
+
+// --Challenge 4: Capitalize letters
+// Return a string with the first letter of every word capitalized 
+// ex capitalizeLetter('i love javascript')=== I LOVE JAVASCRIPT
+
+
+// --Write a JavaScript program to get the difference between a given number and 13, if the number is greater 
+// than 13 return double the absolute difference.
+
+// --Area of a square root  A=/s(s-a)(s-b)(s-c)
+
+const employees =[
+    {id:53,name:'Mike Iwins',age:35,designation:'Team Lead',salary:140000,phone:'4564651556'},
+    {id:54,name:'Ava Elliot',age:25,designation:'Developer',salary:87000,phone:'4564651556'},
+    {id:55,name:'Lima Hendrix',age:30,designation:'Developer',salary:100000,phone:'4564651556'},
+    {id:55,name:'Ashton Cox',age:28,designation:'Developer',salary:90000,phone:'4564651556'},
+    {id:56,name:'Kate Smith',age:26,designation:'Designer',salary:55000,phone:'4564651556'},
+    {id:57,name:'Fiona Quinn',age:27,designation:'Tester',salary:65000,phone:'4564651556'},
+    {id:58,name:'Bernard Neal',age:31,designation:'Analyst',salary:60000,phone:'4564651556'},
+    {id:59,name:'Suzie Janes',age:33,designation:'Accountant',salary:49000,phone:'4564651556'},
+
+]
+
+const companies=[
+    {name:'Company One',category:'Finance',start:1981,end:2000},
+    {name:'Company two',category:'Retail',start:1992,end:2008},
+    {name:'Company three',category:'Auto',start:1999,end:2007},
+    {name:'Company four',category:'Retail',start:1989,end:2010},
+    {name:'Company five',category:'Technology',start:2009,end:2014},
+    {name:'Company six',category:'Finance',start:1987,end:2010},
+    {name:'Company seven',category:'Auto',start:1986,end:1996},
+    {name:'Company eight',category:'Technology',start:2011,end:2016},
+    {name:'Company nine',category:'Retail',start:1981,end:1989},
+
+]
+
+const age=[33,12,20,16,5,54,21,44,61,13,15,45,25,64,32];
+
+/*
+1)Filter:Filter ages array which are 21 and above/over 
+2)Filere : Filter 'Retail' Company
+3) filter : Filter companies array which are started in 80's
+4)filer : Filter companies that lasted more than 10years 
+5)Filter : Employee Array who are 'developer'
+6)Filter : Employee Array who's age is below "30" and Salary is above 85K
+7)Filter : Filter Age array , find  odd and even values
+
+
+1)map: map() method create new array from the existing/current array 
+2)Create array of compaines names 
+3)Map() : Find the employee  Designation and salary
+4)Map() : map() compaies array with 'companies' name and 'start-end' 
+5)Map(): Find employee name and convert them into upper case 
+6)map():map() square root of age array 
+
+__sort() : The sort () method sorts the items of an array. 
+1) The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down).
+2)sort() : sort() age array lowest to higest 
+3)sort():sort() employee name by ascending order 
+4)sort():sort() employee age by low to high
+
+__Reduce(): reduce a conclusion out of array elements
+1)reduce(): Get Total years of all the companies 
+2)Reduce() Reduce() To Find the hightest age array value
+3)Reduce():find the avarage salary of employee array 
+4)Reduce():find the Sum of age array 
+5)Reduce():Sum of Nums and Age array
+
+*/
+
+
+********* Create new user in Workbench *************
+
+CREATE USER 'nivi'@'localhost'
+IDENTIFIED BY 'mypassword';
+
+GRANT CREATE,ALTER,DROP
+ON new_app.*
+TO 'nivi'@'localhost';
+
+GRANT SELECT, INSERT,UPDATE,DELETE
+ON new_app.* TO 'nivi'@'localhost'
+
